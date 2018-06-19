@@ -14,12 +14,12 @@ defmodule Squarestore.Invoice do
     
         #Add a new payment card
     
-        def add_card(card_details \\ %{}, id) do
-            card = Map.merge(card_details, %{user_id: Kernel.elem(Integer.parse(id), 0)})
-            %Billing{}
-            |> Billing.changeset(card)
-            |> Repo.insert()
-        end
+        # def add_card(card_details \\ %{}, id) do
+        #     card = Map.merge(card_details, %{user_id: Kernel.elem(Integer.parse(id), 0)})
+        #     %Billing{}
+        #     |> Billing.changeset(card)
+        #     |> Repo.insert()
+        # end
     
         def test_charge do
             Stripe.Charge.create(%{amount: 20000, currency: "NOK", source: "tok_visa", receipt_email: "matthew.thompson@example.com"})
